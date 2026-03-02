@@ -1,1 +1,29 @@
-/* Add styles here */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --btn-bg: #e0e0e0;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --btn-bg: #333333;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
