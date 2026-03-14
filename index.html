@@ -1,16 +1,109 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>요트 다이스 (Yacht Dice)</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <button id="toggle-dark-mode">Dark Mode</button>
-  <h1>Hello, world!</h1>
-  <button id="add-hello-btn">Press me</button>
-  <div id="hello-container"></div>
+  <div class="game-container">
+    <h1>요트 다이스 (Yacht Dice)</h1>
+    
+    <div class="dice-section">
+      <div id="dice-container" class="dice-container">
+        <div class="dice" data-index="0">?</div>
+        <div class="dice" data-index="1">?</div>
+        <div class="dice" data-index="2">?</div>
+        <div class="dice" data-index="3">?</div>
+        <div class="dice" data-index="4">?</div>
+      </div>
+      <div class="controls">
+        <button id="roll-button">주사위 굴리기 (남은 횟수: 3)</button>
+      </div>
+    </div>
+
+    <div class="scorecard-section">
+      <table id="scorecard">
+        <thead>
+          <tr>
+            <th>카테고리</th>
+            <th>점수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="ones">
+            <td>Ones (1)</td>
+            <td class="score-cell" id="score-ones">-</td>
+          </tr>
+          <tr data-category="twos">
+            <td>Twos (2)</td>
+            <td class="score-cell" id="score-twos">-</td>
+          </tr>
+          <tr data-category="threes">
+            <td>Threes (3)</td>
+            <td class="score-cell" id="score-threes">-</td>
+          </tr>
+          <tr data-category="fours">
+            <td>Fours (4)</td>
+            <td class="score-cell" id="score-fours">-</td>
+          </tr>
+          <tr data-category="fives">
+            <td>Fives (5)</td>
+            <td class="score-cell" id="score-fives">-</td>
+          </tr>
+          <tr data-category="sixes">
+            <td>Sixes (6)</td>
+            <td class="score-cell" id="score-sixes">-</td>
+          </tr>
+          <tr class="subtotal-row">
+            <td>소계 (Subtotal)</td>
+            <td id="subtotal">0 / 63</td>
+          </tr>
+          <tr class="bonus-row">
+            <td>보너스 (+35)</td>
+            <td id="bonus">0</td>
+          </tr>
+          <tr data-category="choice">
+            <td>Choice</td>
+            <td class="score-cell" id="score-choice">-</td>
+          </tr>
+          <tr data-category="four-of-a-kind">
+            <td>4 of a Kind</td>
+            <td class="score-cell" id="score-four-of-a-kind">-</td>
+          </tr>
+          <tr data-category="full-house">
+            <td>Full House</td>
+            <td class="score-cell" id="score-full-house">-</td>
+          </tr>
+          <tr data-category="small-straight">
+            <td>S. Straight</td>
+            <td class="score-cell" id="score-small-straight">-</td>
+          </tr>
+          <tr data-category="large-straight">
+            <td>L. Straight</td>
+            <td class="score-cell" id="score-large-straight">-</td>
+          </tr>
+          <tr data-category="yacht">
+            <td>Yacht</td>
+            <td class="score-cell" id="score-yacht">-</td>
+          </tr>
+          <tr class="total-row">
+            <td>총합 (Total)</td>
+            <td id="total-score">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="game-over" class="modal hidden">
+      <div class="modal-content">
+        <h2>게임 종료!</h2>
+        <p>최종 점수: <span id="final-score">0</span></p>
+        <button id="restart-button">다시 시작</button>
+      </div>
+    </div>
+  </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
